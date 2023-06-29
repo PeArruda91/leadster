@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import videoData from "../api/videoData.json";
 
@@ -21,7 +21,7 @@ const VideoGroup = styled.div`
 `;
 
 const VideoCard = styled.div`
-  width: calc(33.33% - 20px);
+  width: calc(33.33% - 80px);
   margin: 10px;
   padding: 10px;
   background-color: #f2f2f2;
@@ -55,11 +55,17 @@ const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled.div<{ videoHeight: number }>`
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40%;
+  height: ${({ videoHeight }) => videoHeight}px;
+  position: relative;
 
   h2 {
     margin-bottom: 10px;
@@ -72,11 +78,34 @@ const ModalContent = styled.div`
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-top: 10px;
   }
 
-  button:last-child {
-    margin-right: 0;
+  span.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  iframe {
+    width: 100%;
+    height: calc(80% - 50px);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #007bff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 `;
 
@@ -84,6 +113,22 @@ const ModalVideo: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoHeight, setVideoHeight] = useState<number>(0);
+
+  useEffect(() => {
+    const calculateVideoHeight = () => {
+      const windowHeight = window.innerHeight;
+      const videoHeight = windowHeight * 0.8; // Ajuste a porcentagem conforme necessário
+      setVideoHeight(videoHeight);
+    };
+
+    calculateVideoHeight();
+    window.addEventListener("resize", calculateVideoHeight);
+
+    return () => {
+      window.removeEventListener("resize", calculateVideoHeight);
+    };
+  }, []);
 
   const openModal = (video: Video) => {
     setSelectedVideo(video);
@@ -110,7 +155,7 @@ const ModalVideo: React.FC = () => {
       <VideoGroup key={index}>
         {group.map((video, index) => (
           <VideoCard key={index}>
-            <h3>{video.title}</h3>
+            <h4>{video.title}</h4>
             <button onClick={() => openModal(video)}>Open Modal</button>
           </VideoCard>
         ))}
@@ -121,35 +166,26 @@ const ModalVideo: React.FC = () => {
   return (
     <div>
       {/* Video cards */}
-      <div>
-        {renderVideoCards()}
-      </div>
+      <div>{renderVideoCards()}</div>
 
       {/* Modal */}
       {isOpen && videoUrl && (
         <Modal>
-          <ModalContent>
-            {/* Video player */}
+          <ModalContent videoHeight={videoHeight}>
+            <span className="close-button" onClick={closeModal}>
+              &times;
+            </span>
+            <h4>{selectedVideo?.title}</h4>
             <iframe
-              width="560"
-              height="315"
               src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
               title={selectedVideo?.title}
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
-
-            {/* Video title */}
-            <h2>{selectedVideo?.title}</h2>
-
-            {/* Watch video button */}
             <button onClick={() => window.open(videoUrl, "_blank")}>
               Watch Video
             </button>
-
-            {/* Close button */}
-            <button onClick={closeModal}>Close</button>
           </ModalContent>
         </Modal>
       )}
