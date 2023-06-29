@@ -7,7 +7,8 @@ export const VideoGroup = styled.div`
 `;
 
 export const VideoCard = styled.div`
-  width: calc(33.33% - 80px);
+  width: 195px;
+  height: 140px; /* Adicionado o tamanho padrão */
   margin: 10px;
   padding: 10px;
   background-color: #f2f2f2;
