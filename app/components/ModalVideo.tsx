@@ -27,7 +27,7 @@ const VideoCard = styled.div`
   background-color: #f2f2f2;
   border-radius: 5px;
 
-  h3 {
+  h4 {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -57,17 +57,17 @@ const Modal = styled.div`
 
 const ModalContent = styled.div<{ videoHeight: number }>`
   background-color: #fff;
-  padding: 20px;
+  padding: 20px 0;
   border-radius: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40%;
+  max-width: 50%;
   height: ${({ videoHeight }) => videoHeight}px;
   position: relative;
 
-  h2 {
+  h4 {
     margin-bottom: 10px;
   }
 
@@ -99,10 +99,10 @@ const ModalContent = styled.div<{ videoHeight: number }>`
   &::before {
     content: "";
     position: absolute;
-    top: -3px;
+    top: 0px;
     left: 0;
     width: 100%;
-    height: 10px;
+    height: 5px;
     background-color: #007bff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -118,7 +118,7 @@ const ModalVideo: React.FC = () => {
   useEffect(() => {
     const calculateVideoHeight = () => {
       const windowHeight = window.innerHeight;
-      const videoHeight = windowHeight * 0.8; // Ajuste a porcentagem conforme necessário
+      const videoHeight = windowHeight * 0.8;
       setVideoHeight(videoHeight);
     };
 
