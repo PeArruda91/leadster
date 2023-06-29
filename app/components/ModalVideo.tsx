@@ -55,16 +55,16 @@ const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const ModalContent = styled.div<{ videoHeight: number }>`
+const ModalContent = styled.div`
   background-color: #fff;
-  padding: 20px 0;
+  padding: 25px 0;
   border-radius: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 50%;
-  height: ${({ videoHeight }) => videoHeight}px;
+  width: 425px;
+  height: 511px;
   position: relative;
 
   h4 {
@@ -93,7 +93,7 @@ const ModalContent = styled.div<{ videoHeight: number }>`
 
   iframe {
     width: 100%;
-    height: calc(80% - 50px);
+    height: calc(60% - 50px);
   }
 
   &::before {
@@ -171,7 +171,7 @@ const ModalVideo: React.FC = () => {
       {/* Modal */}
       {isOpen && videoUrl && (
         <Modal>
-          <ModalContent videoHeight={videoHeight}>
+          <ModalContent>
             <span className="close-button" onClick={closeModal}>
               &times;
             </span>
