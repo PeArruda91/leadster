@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const NavBar = styled.nav`
   background-color: #ffffff;
