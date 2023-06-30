@@ -1,6 +1,7 @@
 import StyledComponentsRegistry from './lib/registry'
 import { Inter } from 'next/font/google'
 import Navbar from './components/navBar'
+import "./style/globalfont.css"
 
 const inter = Inter({ subsets: ['latin'] })
 

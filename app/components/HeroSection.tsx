@@ -5,28 +5,36 @@ import styled from 'styled-components';
 
 // Estilos do componente
 const HeroSection = styled.section`
-  height: 20em;
-  background-color: #EAF6FF;  
+  min-height: 20rem;
+  background-color: #EAF6FF;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+
+  @media (min-height: 1600px) {
+    min-height: 610px;
+  }
 `;
 
 const HeroTitle = styled.h1`
   font-size: 3rem;
   color: #0084FF;
   margin-bottom: 0.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
 const HeroSubtitle = styled.p`
   font-size: 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
 const HeroCaption = styled.p`
   font-size: 1rem;
   margin-top: 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
 const HeroCaption2 = styled.p`
@@ -40,6 +48,7 @@ const HeroCaption2 = styled.p`
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 0;
   padding: 0.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
 const HeroSectionComponent: React.FC = () => {

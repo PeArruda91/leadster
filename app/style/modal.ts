@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const VideoGroup = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza os cards */
   margin-bottom: 20px;
 `;
 
@@ -18,6 +18,7 @@ export const VideoCard = styled.div`
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
   }
 
   button {
@@ -27,10 +28,11 @@ export const VideoCard = styled.div`
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
   }
-`;
+}`;
 
-export  const Modal = styled.div`
+export const Modal = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +44,7 @@ export  const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-export  const ModalContent = styled.div`
+export const ModalContent = styled.div`
   background-color: #fff;
   padding: 25px 0;
   border-radius: 5px;
@@ -56,6 +58,7 @@ export  const ModalContent = styled.div`
 
   h4 {
     margin-bottom: 10px;
+    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
   }
 
   button {
@@ -66,6 +69,7 @@ export  const ModalContent = styled.div`
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
   }
 
   span.close-button {
