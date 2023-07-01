@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // Estilos do componente
 const HeroSection = styled.section`
   min-height: 20rem;
-  background-color: #EAF6FF;
+  background-color: #F0F8FF;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -23,19 +23,23 @@ const HeroTitle = styled.h1`
   font-size: 3rem;
   color: #0084FF;
   margin-bottom: 0.5rem;
+  margin-top: 0px; /* Adiciona margem superior de 12px */
   font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
 const HeroSubtitle = styled.p`
   font-size: 1.5rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-top: 12px; /* Adiciona margem superior de 12px */;
+  margin-bottom: 0px
 `;
 
 const HeroCaption = styled.p`
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 12px; /* Adiciona margem superior de 12px */
   font-family: 'Plus Jakarta Sans', sans-serif;
 `;
+
 
 const HeroCaption2 = styled.p`
   font-size: 1rem;
@@ -48,6 +52,7 @@ const HeroCaption2 = styled.p`
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 0;
   padding: 0.5rem;
+  margin-bottom: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
 `;
 
@@ -57,7 +62,7 @@ const HeroSectionComponent: React.FC = () => {
       <HeroCaption2>Webnars exclusivos</HeroCaption2>
       <HeroSubtitle>Menos conversinha</HeroSubtitle>
       <HeroTitle>Mais Conversão</HeroTitle>
-      <hr style={{ width: '50%', borderTop: '1px solid black' }} />
+      <hr style={{ width: '70%', borderTop: '1px solid grey' }} />
       <HeroCaption>Conheça as estratégias que <strong>mudaram o jogo</strong> e como aplicá-las no seu negócio!</HeroCaption>
     </HeroSection>
   );
