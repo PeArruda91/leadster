@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
+
 export const VideoGroup = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 
   @media (max-width: 767px) {
+    /* Estilos para smartphone */
     flex-direction: column;
     align-items: center;
   }
@@ -18,6 +20,12 @@ export const VideoCard = styled.div`
   padding: 10px;
   background-color: #f2f2f2;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.3s; /* Adição de transição para suavizar a mudança de box-shadow */
 
   h4 {
     font-size: 16px;
@@ -34,9 +42,35 @@ export const VideoCard = styled.div`
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Plus Jakarta Sand', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3); /* Modificação da cor da borda para um cinza mais escuro */
+  }
+
+  button:hover {
+    animation: buttonPulse 1.5s infinite; /* Adição da animação de pulsação somente ao passar o mouse */
+  }
+
+  @keyframes buttonPulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 767px) {
+    /* Estilos para smartphone */
     width: 100%;
     margin: 10px 0;
   }
@@ -51,7 +85,7 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(240, 248, 255, 0.5);
 `;
 
 export const ModalContent = styled.div`
@@ -110,6 +144,7 @@ export const ModalContent = styled.div`
   }
 
   @media (max-width: 767px) {
+    /* Estilos para smartphone */
     width: 90%;
     height: auto;
   }

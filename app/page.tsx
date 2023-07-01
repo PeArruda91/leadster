@@ -2,6 +2,7 @@ import DownBanner from "./components/DownBanner";
 import HeroSectionComponent from "./components/HeroSection";
 import ModalVideo from "./components/ModalVideo";
 import Navbar from "./components/navBar";
+import FourButtonComponent from "./components/selectBar";
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
    <>
     <Navbar />
     <HeroSectionComponent />
+    <FourButtonComponent />
     <ModalVideo />
     <DownBanner />
     </>

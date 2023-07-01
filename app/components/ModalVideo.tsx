@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import videoData from "../api/videoData.json";
 import { VideoGroup, VideoCard, Modal, ModalContent } from "../style/modal";
+import { FaPlay } from 'react-icons/fa';
 
 interface Video {
   title: string;
@@ -66,7 +67,7 @@ const ModalVideo: React.FC = () => {
         {group.map((video, index) => (
           <VideoCard key={index}>
             <h4>{video.title}</h4>
-            <button onClick={() => openModal(video)}>Open Modal</button>
+            <button onClick={() => openModal(video)}><FaPlay /></button>
           </VideoCard>
         ))}
       </VideoGroup>
