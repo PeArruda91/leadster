@@ -3,7 +3,9 @@
 import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroSubtitle, HeroTitle } from '../style/banner';
 
-const HeroSectionComponent: React.FC = () => {
+
+
+const DownBanner: React.FC = () => {
   return (
     <HeroSection>
       <HeroCaption2>Webnars exclusivos</HeroCaption2>
@@ -15,4 +17,4 @@ const HeroSectionComponent: React.FC = () => {
   );
 };
 
-export default HeroSectionComponent;
+export default DownBanner;

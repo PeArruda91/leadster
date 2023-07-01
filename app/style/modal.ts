@@ -2,13 +2,18 @@ import styled from "styled-components";
 
 export const VideoGroup = styled.div`
   display: flex;
-  justify-content: center; /* Centraliza os cards */
+  justify-content: center;
   margin-bottom: 20px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const VideoCard = styled.div`
   width: 195px;
-  height: 140px; /* Adicionado o tamanho padrão */
+  height: 140px;
   margin: 10px;
   padding: 10px;
   background-color: #f2f2f2;
@@ -18,7 +23,7 @@ export const VideoCard = styled.div`
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
-    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
+    font-family: 'Plus Jakarta Sand', sans-serif;
   }
 
   button {
@@ -28,7 +33,12 @@ export const VideoCard = styled.div`
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
+    font-family: 'Plus Jakarta Sand', sans-serif;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 10px 0;
   }
 }`;
 
@@ -58,7 +68,7 @@ export const ModalContent = styled.div`
 
   h4 {
     margin-bottom: 10px;
-    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
+    font-family: 'Plus Jakarta Sand', sans-serif;
   }
 
   button {
@@ -69,7 +79,7 @@ export const ModalContent = styled.div`
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    font-family: 'Plus Jakarta Sand', sans-serif; /* Adiciona a fonte */
+    font-family: 'Plus Jakarta Sand', sans-serif;
   }
 
   span.close-button {
@@ -97,5 +107,10 @@ export const ModalContent = styled.div`
     background-color: #007bff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+  }
+
+  @media (max-width: 767px) {
+    width: 90%;
+    height: auto;
   }
 `;
