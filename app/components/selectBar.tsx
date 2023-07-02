@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ModalVideo from "./ModalVideo";
-import MktVideo from "./mktdigVIdeos"; 
+import MktVideo from "./mktdigVIdeos";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -34,11 +34,44 @@ const Button = styled.button`
     color: #0084FF;
   }
 `;
+
 const ButtonGroup = styled.div`
   width: 100%;
   margin-top: 10px; /* Igual ao margin do VideoCard */;
-  margin-left: -70px
-`
+  margin-left: -70px;
+`;
+
+const CenteredVideo = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
+const DefaultVideo = () => {
+  return (
+    <CenteredVideo>
+      <div>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/kvZxxVLApxw?start=31"
+          title="Default Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </CenteredVideo>
+  );
+};
 
 const FourButtonComponent: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
@@ -56,8 +89,9 @@ const FourButtonComponent: React.FC = () => {
           <Button>lorem ipsum</Button>
           <Button>lorem ipsum</Button>
         </ButtonContainer>
+        <Line />
       </ButtonGroup>
-      {selectedComponent}
+      {selectedComponent || <DefaultVideo />}
     </>
   );
 };
