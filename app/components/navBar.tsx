@@ -21,6 +21,7 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 50px
 `;
 
 export const Logo = styled(Image)`
@@ -28,7 +29,7 @@ export const Logo = styled(Image)`
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  transform: scale(1.5); 
+  transform: scale(1); 
 
   @media (max-width: 767px) {
     

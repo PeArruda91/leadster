@@ -1,25 +1,27 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import ModalVideo from "./ModalVideo";
+import MktVideo from "./mktdigVIdeos"; 
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 400px; /* Aumentei a largura do container */
   margin: 0 auto;
+  max-width: 400px; /* Defina a largura máxima do container */
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 8px 16px; /* Reduzir o tamanho do padding para diminuir o botão */
   background-color: transparent;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 20px; /* Aumentar o valor do border-radius para arredondar mais */
   color: black;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s;
-  width: 100%; /* Ocupa 100% da largura disponível */
+  flex: 1; /* Ocupa a largura disponível no container */
   margin-right: 10px; /* Adiciona um espaçamento lateral entre os botões */
   white-space: nowrap; /* Evita que as palavras sejam quebradas */
 
@@ -32,15 +34,31 @@ const Button = styled.button`
     color: #0084FF;
   }
 `;
+const ButtonGroup = styled.div`
+  width: 100%;
+  margin-top: 10px; /* Igual ao margin do VideoCard */;
+  margin-left: -70px
+`
 
 const FourButtonComponent: React.FC = () => {
+  const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
+
+  const handleButtonClick = (component: React.ReactNode) => {
+    setSelectedComponent(component);
+  };
+
   return (
-    <ButtonContainer>
-      <Button>SEO</Button>
-      <Button>Mídia Paga</Button>
-      <Button>lorem ipsum</Button>
-      <Button>lorem ipsum</Button>
-    </ButtonContainer>
+    <>
+      <ButtonGroup>
+        <ButtonContainer>
+          <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
+          <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
+          <Button>lorem ipsum</Button>
+          <Button>lorem ipsum</Button>
+        </ButtonContainer>
+      </ButtonGroup>
+      {selectedComponent}
+    </>
   );
 };
 

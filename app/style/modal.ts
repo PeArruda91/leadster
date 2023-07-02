@@ -5,6 +5,7 @@ export const VideoGroup = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin-left: 140px;
 
   @media (max-width: 767px) {
     /* Estilos para smartphone */
@@ -25,7 +26,7 @@ export const VideoCard = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  transition: box-shadow 0.3s; /* Adição de transição para suavizar a mudança de box-shadow */
+  transition: box-shadow 0.3s; 
 
   h4 {
     font-size: 16px;
@@ -50,11 +51,11 @@ export const VideoCard = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3); /* Modificação da cor da borda para um cinza mais escuro */
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3); 
   }
 
   button:hover {
-    animation: buttonPulse 1.5s infinite; /* Adição da animação de pulsação somente ao passar o mouse */
+    animation: buttonPulse 1.5s infinite; 
   }
 
   @keyframes buttonPulse {
