@@ -16,6 +16,11 @@ const FooterContent = styled.div`
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 `;
 
 const Column = styled.div``;
@@ -42,6 +47,7 @@ const Link = styled.a`
 const SocialIcons = styled.ul`
   display: flex;
   padding: 0;
+  justify-content: center;
 `;
 
 const SocialIconItem = styled.li`

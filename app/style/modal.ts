@@ -5,7 +5,6 @@ export const VideoGroup = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  margin-left: 140px;
 
   @media (max-width: 767px) {
     /* Estilos para smartphone */

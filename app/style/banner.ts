@@ -8,8 +8,9 @@ export const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
   align-items: center;
-  width: 100vw;
+  width: auto;
 
   @media (min-height: 1600px) {
     min-height: 610px;

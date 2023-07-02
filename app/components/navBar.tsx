@@ -21,7 +21,6 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 50px
 `;
 
 export const Logo = styled(Image)`

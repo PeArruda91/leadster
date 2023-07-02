@@ -7,9 +7,14 @@ import MktVideo from "./mktdigVIdeos";
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: space-around;
+  margin: auto;
   max-width: 400px; /* Defina a largura máxima do container */
+  
+  
+  @media (max-width: 600px) {
+    display: none; /* Ocultar o menu normal em dispositivos móveis */
+  }
 `;
 
 const Button = styled.button`
@@ -33,12 +38,53 @@ const Button = styled.button`
     border: 2px solid #0084FF;
     color: #0084FF;
   }
+
+  @media (max-width: 600px) {
+    /* Estilos para smartphones */
+    flex: none; /* Remover a ocupação da largura disponível */
+    margin: 0;
+    margin-bottom: 10px; /* Adicionar espaçamento inferior */
+    width: 100%; /* Padronizar o tamanho dos botões */
+  }
+
 `;
 
-const ButtonGroup = styled.div`
-  width: 100%;
-  margin-top: 10px; /* Igual ao margin do VideoCard */;
-  margin-left: -70px;
+const HamburgerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px; /* Adicionar espaçamento inferior */
+
+  @media (min-width: 601px) {
+    display: none; /* Ocultar o hamburguer em telas maiores */
+  }
+`;
+
+const Hamburger = styled.button`
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+`;
+
+const HamburgerIcon = styled.div`
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+const ButtonMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 `;
 
 const CenteredVideo = styled.div`
@@ -75,22 +121,43 @@ const DefaultVideo = () => {
 
 const FourButtonComponent: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleButtonClick = (component: React.ReactNode) => {
     setSelectedComponent(component);
+    setMenuOpen(false); // Fechar o menu ao selecionar um componente
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <>
-      <ButtonGroup>
-        <ButtonContainer>
+      <HamburgerContainer>
+        <Hamburger onClick={toggleMenu}>
+          <HamburgerIcon />
+          <HamburgerIcon />
+          <HamburgerIcon />
+        </Hamburger>
+      </HamburgerContainer>
+
+      {menuOpen && (
+        <ButtonMenu>
           <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
           <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
           <Button>lorem ipsum</Button>
           <Button>lorem ipsum</Button>
-        </ButtonContainer>
-        <Line />
-      </ButtonGroup>
+        </ButtonMenu>
+      )}
+
+      <ButtonContainer>
+        <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
+        <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
+        <Button>lorem ipsum</Button>
+        <Button>lorem ipsum</Button>
+      </ButtonContainer>
+      <Line />
       {selectedComponent || <DefaultVideo />}
     </>
   );
