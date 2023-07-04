@@ -8,6 +8,7 @@ import { FaPlay } from 'react-icons/fa';
 interface Video {
   title: string;
   videoId: string;
+  thumbnailUrl: string; 
 }
 
 interface VideoData {
@@ -55,17 +56,18 @@ const MktVideo: React.FC = () => {
     const indexOfLastVideo = currentPage * videosPerPage;
     const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
     const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
-
+  
     const groups: Video[][] = [];
     for (let i = 0; i < currentVideos.length; i += 3) {
       const group = currentVideos.slice(i, i + 3);
       groups.push(group);
     }
-
+  
     return groups.map((group, index) => (
       <VideoGroup key={index}>
         {group.map((video, index) => (
           <VideoCard key={index}>
+            <img src={video.thumbnailUrl} alt={video.title} />
             <h4>{video.title}</h4>
             <button onClick={() => openModal(video)}><FaPlay /></button>
           </VideoCard>

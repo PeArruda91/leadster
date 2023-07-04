@@ -15,20 +15,20 @@ export const VideoGroup = styled.div`
 
 export const VideoCard = styled.div`
   width: 195px;
-  height: 140px;
+  min-height: 200px;
   margin: 10px;
   padding: 10px;
-  background-color: #f2f2f2;
+  background-color: rgba(240, 240, 240, 0.1);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  transition: box-shadow 0.3s; 
+  transition: box-shadow 0.3s;
 
   h4 {
-    font-size: 16px;
+    font-size: 14px; 
     font-weight: bold;
     margin-bottom: 8px;
     font-family: 'Plus Jakarta Sand', sans-serif;
@@ -50,11 +50,11 @@ export const VideoCard = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
   }
 
   button:hover {
-    animation: buttonPulse 1.5s infinite; 
+    animation: buttonPulse 1.5s infinite;
   }
 
   @keyframes buttonPulse {
@@ -74,7 +74,15 @@ export const VideoCard = styled.div`
     width: 100%;
     margin: 10px 0;
   }
-}`;
+
+  img {
+    width: 100%;
+    height: auto; /* Alterado para ajustar automaticamente a altura */
+    object-fit: contain; /* Alterado para garantir que a imagem seja exibida por completo */
+    border-radius: 5px;
+  }
+`;
+
 
 export const Modal = styled.div`
   position: fixed;
