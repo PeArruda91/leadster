@@ -1,37 +1,37 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ModalVideo from "./ModalVideo";
-import MktVideo from "./mktdigVIdeos";
+
+import ModalVideo from './ModalVideo';
+import MktVideo from './mktdigVIdeos';
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin: auto;
-  max-width: 400px; /* Defina a largura máxima do container */
-  
+  max-width: 400px;
   
   @media (max-width: 600px) {
-    display: none; /* Ocultar o menu normal em dispositivos móveis */
+    display: none;
   }
 `;
 
 const Button = styled.button`
-  padding: 8px 16px; /* Reduzir o tamanho do padding para diminuir o botão */
+  padding: 8px 16px;
   background-color: transparent;
   border: 2px solid black;
-  border-radius: 20px; /* Aumentar o valor do border-radius para arredondar mais */
+  border-radius: 20px;
   color: black;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s;
-  flex: 1; /* Ocupa a largura disponível no container */
-  margin-right: 10px; /* Adiciona um espaçamento lateral entre os botões */
-  white-space: nowrap; /* Evita que as palavras sejam quebradas */
+  flex: 1;
+  margin-right: 10px;
+  white-space: nowrap;
 
   &:last-child {
-    margin-right: 0; /* Remove o espaçamento do último botão */
+    margin-right: 0;
   }
 
   &:hover {
@@ -40,23 +40,17 @@ const Button = styled.button`
   }
 
   @media (max-width: 600px) {
-    /* Estilos para smartphones */
-    flex: none; /* Remover a ocupação da largura disponível */
+    flex: none;
     margin: 0;
-    margin-bottom: 10px; /* Adicionar espaçamento inferior */
-    width: 100%; /* Padronizar o tamanho dos botões */
+    margin-bottom: 10px;
+    width: 100%;
   }
-
 `;
 
 const HamburgerContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 10px; /* Adicionar espaçamento inferior */
-
-  @media (min-width: 601px) {
-    display: none; /* Ocultar o hamburguer em telas maiores */
-  }
+  margin-bottom: 10px;
 `;
 
 const Hamburger = styled.button`
@@ -80,6 +74,7 @@ const HamburgerIcon = styled.div`
     margin-right: 0;
   }
 `;
+
 const ButtonMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -110,6 +105,21 @@ const DefaultVideo = () => {
           height="315"
           src="https://www.youtube.com/embed/kvZxxVLApxw?start=31"
           title="Default Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </CenteredVideo>
+  );
+};
+
+const ResponsiveVideo = () => {
+  return (
+    <CenteredVideo>
+      <div>
+        <iframe
+          src="https://www.youtube.com/embed/kvZxxVLApxw?start=31"
+          title="Default Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -122,10 +132,29 @@ const DefaultVideo = () => {
 const FourButtonComponent: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Função para verificar se é um dispositivo móvel
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    // Verificar o status inicial ao carregar o componente
+    checkIsMobile();
+
+    // Adicionar o listener para atualizar o status em mudanças de largura
+    window.addEventListener('resize', checkIsMobile);
+
+    // Remover o listener ao desmontar o componente
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   const handleButtonClick = (component: React.ReactNode) => {
     setSelectedComponent(component);
-    setMenuOpen(false); // Fechar o menu ao selecionar um componente
+    setMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -157,8 +186,9 @@ const FourButtonComponent: React.FC = () => {
         <Button>lorem ipsum</Button>
         <Button>lorem ipsum</Button>
       </ButtonContainer>
+
       <Line />
-      {selectedComponent || <DefaultVideo />}
+      {selectedComponent || (isMobile ? <ResponsiveVideo /> : <DefaultVideo />)}
     </>
   );
 };
