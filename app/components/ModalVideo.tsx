@@ -8,6 +8,7 @@ import { FaPlay } from 'react-icons/fa';
 interface Video {
   title: string;
   videoId: string;
+  thumbnailUrl: string; 
 }
 
 interface VideoData {
@@ -66,6 +67,7 @@ const ModalVideo: React.FC = () => {
       <VideoGroup key={index}>
         {group.map((video, index) => (
           <VideoCard key={index}>
+            <img src={video.thumbnailUrl} alt={video.title} />
             <h4>{video.title}</h4>
             <button onClick={() => openModal(video)}><FaPlay /></button>
           </VideoCard>
