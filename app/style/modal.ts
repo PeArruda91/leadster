@@ -18,7 +18,7 @@ export const VideoCard = styled.div`
   min-height: 200px;
   margin: 10px;
   padding: 10px;
-  background-color: rgba(240, 240, 240, 0.1);
+  background-color: rgba(240, 240, 240, 0.4);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,7 @@ export const VideoCard = styled.div`
 
   &:hover {
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1); /* Adicionando o efeito de zoom */
   }
 
   button:hover {
@@ -77,8 +78,8 @@ export const VideoCard = styled.div`
 
   img {
     width: 100%;
-    height: auto; /* Alterado para ajustar automaticamente a altura */
-    object-fit: contain; /* Alterado para garantir que a imagem seja exibida por completo */
+    height: auto;
+    object-fit: contain;
     border-radius: 5px;
   }
 `;
