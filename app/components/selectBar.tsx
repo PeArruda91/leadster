@@ -135,18 +135,12 @@ const FourButtonComponent: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Função para verificar se é um dispositivo móvel
+    
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 600);
-    };
-
-    // Verificar o status inicial ao carregar o componente
+    };    
     checkIsMobile();
-
-    // Adicionar o listener para atualizar o status em mudanças de largura
     window.addEventListener('resize', checkIsMobile);
-
-    // Remover o listener ao desmontar o componente
     return () => {
       window.removeEventListener('resize', checkIsMobile);
     };
