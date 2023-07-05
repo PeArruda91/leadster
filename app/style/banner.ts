@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Estilos do componente
 export const HeroSection = styled.section`
   min-height: 20rem;
   background-color: #F0F8FF;
