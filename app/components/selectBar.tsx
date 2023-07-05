@@ -68,12 +68,13 @@ const HamburgerIcon = styled.div`
   width: 20px;
   height: 2px;
   background-color: black;
-  margin-right: 5px;
+  margin-bottom: 4px;
 
   &:last-child {
-    margin-right: 0;
+    margin-bottom: 0;
   }
 `;
+
 
 const ButtonMenu = styled.div`
   display: flex;
@@ -135,7 +136,6 @@ const FourButtonComponent: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 600);
     };    
@@ -157,13 +157,15 @@ const FourButtonComponent: React.FC = () => {
 
   return (
     <>
-      <HamburgerContainer>
-        <Hamburger onClick={toggleMenu}>
-          <HamburgerIcon />
-          <HamburgerIcon />
-          <HamburgerIcon />
-        </Hamburger>
-      </HamburgerContainer>
+      {isMobile && (
+        <HamburgerContainer>
+          <Hamburger onClick={toggleMenu}>
+            <HamburgerIcon />
+            <HamburgerIcon />
+            <HamburgerIcon />
+          </Hamburger>
+        </HamburgerContainer>
+      )}
 
       {menuOpen && (
         <ButtonMenu>

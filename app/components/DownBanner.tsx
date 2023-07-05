@@ -2,17 +2,24 @@
 
 import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroSubtitle, HeroTitle } from '../style/banner';
+import Image from "next/image";
+import styled from 'styled-components';
 
+export const Comparative = styled(Image)`
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding-right: 45%;
+  margin-bottom: -55px;
+}
+`;
 
 
 const DownBanner: React.FC = () => {
   return (
     <HeroSection>
-      <HeroCaption2>Webnars exclusivos</HeroCaption2>
-      <HeroSubtitle>Menos conversinha</HeroSubtitle>
-      <HeroTitle>Mais Conversão</HeroTitle>
-      <hr style={{ width: '50%', borderTop: '1px solid black' }} />
-      <HeroCaption>Conheça as estratégias que <strong>mudaram o jogo</strong> e como aplicá-las no seu negócio!</HeroCaption>
+      <Comparative src="/media/comparativo_img_CTA.png" alt="Comparativo" width= {330} height={250}></Comparative>
     </HeroSection>
   );
 };
