@@ -22,10 +22,13 @@ export const HeroSection = styled.section`
 
 export const HeroTitle = styled.h1`
   font-size: 3rem;
-  color: #0084FF;
   margin-bottom: 0.5rem;
   margin-top: 0px;
   font-family: 'Plus Jakarta Sans', sans-serif;
+
+  background: linear-gradient(45deg, #2c83fb, #1f76f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   @media (max-width: 767px) {
     font-size: 2rem;

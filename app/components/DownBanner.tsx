@@ -12,6 +12,12 @@ const Comparative = styled(Image)`
   max-height: 80%;
   padding-right: 35%;
   margin-bottom: -35px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+  }
 }
 `;
 
@@ -44,6 +50,7 @@ const BlueButton = styled.button`
   margin-top: -10px;
   cursor: pointer;
 `;
+
 
 const DownBanner: React.FC = () => {
   return (
