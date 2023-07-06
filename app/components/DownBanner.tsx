@@ -148,13 +148,13 @@ const DownBanner: React.FC = () => {
         <hr style={{ width: '100%', borderTop: '1px solid black' }} />
         <TopTenAppContainer>
           <BlueButton>VER DEMONSTRAÇÃO</BlueButton>
-          <Toptenapp src="/media/selo_RD.png" alt="seloRD" width={150} height={10} />
+          <Toptenapp src="/media/selo_RD.png" alt="seloRD" width={353} height={73} />
         </TopTenAppContainer>
         
         <CreditCardRateContainer>
-          <CreditCard src="/media/no-card-dark.webp" alt="nocard" width={150} height={10} />
+          <CreditCard src="/media/no-card-dark.webp" alt="nocard" width={16} height={16} />
         <CreditCardCaption>Não é necessário cartão de crédito </CreditCardCaption>
-          <Rate src="/media/rating.webp" alt="rating" width={150} height={10} />
+          <Rate src="/media/rating.webp" alt="rating" width={92} height={16} />
         <RateCaption>4,9/5 de satisfação</RateCaption>
         </CreditCardRateContainer>
 

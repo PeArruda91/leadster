@@ -26,6 +26,7 @@ export const VideoCard = styled.div`
   align-items: center;
   position: relative;
   transition: box-shadow 0.3s;
+  overflow: hidden
 
   h4 {
     font-size: 14px; 
@@ -108,7 +109,8 @@ export const ModalContent = styled.div`
   width: 425px;
   height: 511px;
   position: relative;
-
+  overflow: hidden
+  
   h4 {
     margin-bottom: 10px;
     font-family: 'Plus Jakarta Sand', sans-serif;

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import ModalVideo from './ModalVideo';
 import MktVideo from './mktdigVIdeos';
+import FuturoMkt from './futuroMkt';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -179,7 +180,7 @@ const FourButtonComponent: React.FC = () => {
       <ButtonContainer>
         <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
         <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
-        <Button>lorem ipsum</Button>
+        <Button onClick={() => handleButtonClick(<FuturoMkt />)}>Futuro do Marketing</Button>
         <Button>lorem ipsum</Button>
       </ButtonContainer>
 
