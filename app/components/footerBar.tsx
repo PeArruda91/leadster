@@ -8,6 +8,7 @@ export const NavBar = styled.nav`
   background-color: #ffffff;
   height: 60px;
   display: flex;
+  flex-direction: column; /* Added */
   justify-content: center;
   align-items: center;
 
@@ -19,6 +20,7 @@ export const NavBar = styled.nav`
 export const LogoWrapper = styled.div`
   height: 100%;
   display: flex;
+  flex-direction: column; /* Added */
   align-items: center;
   justify-content: center;
 `;
@@ -30,19 +32,23 @@ export const Logo = styled(Image)`
   max-height: 100%;
   transform: scale(1); 
 
-  @media (max-width: 767px) {
-    
+  @media (max-width: 767px) {  
     transform: scale(1); 
   }
 `;
 
-
+export const Tagline = styled.p`
+  font-size: 10px;
+  color: #666666;
+  margin-top: 10px; /* Updated */
+`;
 
 const FooterBar = () => {
   return (
     <NavBar>
       <LogoWrapper>
-        <Logo src="/media/logo.png" alt="Logo" width={120} height={40} />
+        <Logo src="/media/logo.png" alt="Logo" width={160} height={60} />
+        <Tagline>Transformando visitantes em clientes.</Tagline>
       </LogoWrapper>
     </NavBar>
   );
