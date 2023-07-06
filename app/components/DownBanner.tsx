@@ -1,6 +1,5 @@
 "use client"
 
-"use client"
 
 import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroTitle } from '../style/banner';
