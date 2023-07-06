@@ -1,5 +1,7 @@
 "use client"
 
+"use client"
+
 import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroTitle } from '../style/banner';
 import Image from "next/image";
@@ -18,7 +20,52 @@ const Comparative = styled(Image)`
     margin: 0 auto;
     display: block;
   }
+`;
+
+const CreditCard = styled(Image)`
+width: auto;
+height: auto;
+max-width: 80%;
+max-height: 80%;
+padding-top: -65px;
+margin-right: 5px;
+
+@media (max-width: 767px) {
+  padding-right: 0;
+  margin: 0 auto;
+  display: block;
 }
+`;
+
+const Rate = styled(Image)`
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  margin-right: 5px;
+  margin-left: -5px;
+  padding-top: -65px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+  }
+`;
+
+const Toptenapp = styled(Image)`
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  padding-right: 35%;
+  margin-left: 0px;
+  margin-bottom: -12px;
+
+  @media (max-width: 767px) {
+    
+    display: none;
+  }
 `;
 
 const DownSubtitle = styled.p`
@@ -42,15 +89,51 @@ const DownSubtitle = styled.p`
 const BlueButton = styled.button`
   background-color: #0084FF;
   color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 22px 34px; 
+  font-size: 0.875rem; 
   border: none;
-  border-radius: 4px;
-  margin-left: 0px;
-  margin-top: -10px;
+  border-radius: 35px;
+  margin-right: 5px;
+  margin-top: 5px;
   cursor: pointer;
+  white-space: nowrap; 
+
+  @media (max-width: 767px){
+    display: block;
+    margin: 5px auto;
+  }
 `;
 
+
+const TopTenAppContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+`;
+
+const TopTenAppCaption = styled.div`
+  margin-left: 10px;
+`;
+
+const TopTenAppTitle = styled.p`
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+`;
+const CreditCardRateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+`;
+
+const CreditCardCaption = styled.p`
+  font-size: 0.75rem;
+  margin-right: 10px;
+`;
+
+const RateCaption = styled.p`
+  font-size: 0.75rem;
+`;
 
 const DownBanner: React.FC = () => {
   return (
@@ -61,9 +144,20 @@ const DownBanner: React.FC = () => {
         Pronto para triplicar a sua
         <br />
         <strong>Geração de Leads?</strong>
-        <HeroCaption>Criação e ativação em 4 minutos.</HeroCaption>
+        <HeroCaption>Criação e ativação em <strong>4 minutos.</strong></HeroCaption>
         <hr style={{ width: '100%', borderTop: '1px solid black' }} />
-        <BlueButton>bla bla bla bla</BlueButton>
+        <TopTenAppContainer>
+          <BlueButton>VER DEMONSTRAÇÃO</BlueButton>
+          <Toptenapp src="/media/selo_RD.png" alt="seloRD" width={150} height={10} />
+        </TopTenAppContainer>
+        
+        <CreditCardRateContainer>
+          <CreditCard src="/media/no-card-dark.webp" alt="nocard" width={150} height={10} />
+        <CreditCardCaption>Não é necessário cartão de crédito </CreditCardCaption>
+          <Rate src="/media/rating.webp" alt="rating" width={150} height={10} />
+        <RateCaption>4,9/5 de satisfação</RateCaption>
+        </CreditCardRateContainer>
+
       </DownSubtitle>
     </HeroSection>
   );

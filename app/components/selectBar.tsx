@@ -104,7 +104,7 @@ const DefaultVideo = () => {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/kvZxxVLApxw?start=31"
+          src="https://www.youtube.com/embed/kvZxxVLApxw"
           title="Default Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -119,7 +119,7 @@ const ResponsiveVideo = () => {
     <CenteredVideo>
       <div>
         <iframe
-          src="https://www.youtube.com/embed/kvZxxVLApxw?start=31"
+          src="https://www.youtube.com/embed/kvZxxVLApxw"
           title="Default Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
