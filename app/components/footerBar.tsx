@@ -38,7 +38,7 @@ export const Logo = styled(Image)`
 
 
 
-const DownBar = () => {
+const FooterBar = () => {
   return (
     <NavBar>
       <LogoWrapper>
@@ -48,4 +48,4 @@ const DownBar = () => {
   );
 };
 
-export default DownBar;
+export default FooterBar;
