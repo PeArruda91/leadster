@@ -21,7 +21,7 @@ export const HeroSection = styled.section`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 3.25rem;
   margin-bottom: 0.5rem;
   margin-top: 0px;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -36,13 +36,14 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroSubtitle = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin-top: 12px;
-  margin-bottom: 0px;
+  margin-bottom: -45px;
 
   @media (max-width: 767px) {
     font-size: 1rem;
+    margin-bottom: 0px;
     margin-top: 6px;
   }
 `;

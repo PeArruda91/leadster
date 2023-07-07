@@ -10,9 +10,8 @@ const Loguinho = styled(Image)`
   height: auto;
   max-width: 80%;
   max-height: 80%;
-  padding-right: 35%;
-  margin-left: 0px;
-  margin-bottom: -12px;
+  margin-left: 83%;
+  margin-bottom: -10%;
 
   @media (max-width: 767px) {
     
@@ -24,8 +23,11 @@ const HeroSectionComponent: React.FC = () => {
   return (
     <HeroSection>
       <HeroCaption2>Webnars exclusivos</HeroCaption2>
-      <HeroSubtitle>Menos conversinha</HeroSubtitle>
-      <HeroTitle>Mais Conversão</HeroTitle>
+      <HeroSubtitle>Menos conversinha,</HeroSubtitle>
+      <HeroTitle>
+        <Loguinho src="/media/asset-header.png" alt="Comparativo" width={380} height={310} />
+        Mais Conversão
+        </HeroTitle>
       <hr style={{ width: '50%', borderTop: '1px solid black' }} />
       <HeroCaption>Conheça as estratégias que <strong>mudaram o jogo</strong> e como aplicá-las no seu negócio!</HeroCaption>
     </HeroSection>
