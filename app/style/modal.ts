@@ -7,7 +7,6 @@ export const VideoGroup = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 767px) {
-    /* Estilos para smartphone */
     flex-direction: column;
     align-items: center;
   }
@@ -93,7 +92,7 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(240, 248, 255, 0.5);
+  background-color: rgba(140, 148, 230, 0.3);
 `;
 
 export const ModalContent = styled.div`
@@ -106,12 +105,17 @@ export const ModalContent = styled.div`
   align-items: center;
   width: 425px;
   height: 511px;
-  position: relative;
-  overflow: hidden
+  position: fixed;
+  z-index: 999;
   
   h4 {
     margin-bottom: 10px;
     font-family: 'Plus Jakarta Sand', sans-serif;
+  }
+
+  span.h4-title{
+    color: #2c83fb;
+    font-weight: bold;
   }
 
   button {
@@ -157,3 +161,9 @@ export const ModalContent = styled.div`
     height: auto;
   }
 `;
+
+export const Description = styled.div`
+  text-align: left;
+  margin: 20px;
+
+`

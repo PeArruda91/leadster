@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import seo from "../api/seo.json";
-import { VideoGroup, VideoCard, Modal, ModalContent } from "../style/modal";
+import { VideoGroup, VideoCard, Modal, ModalContent, Description } from "../style/modal";
 import { FaPlay } from 'react-icons/fa';
 
 interface Video {
   title: string;
   videoId: string;
-  thumbnailUrl: string; 
+  thumbnailUrl: string;
+  descricao: string;
 }
 
 interface VideoData {
@@ -22,7 +23,7 @@ const SEO: React.FC = () => {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [videoHeight, setVideoHeight] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const videosPerPage = 6;
+  const videosPerPage = 9;
 
   useEffect(() => {
     const calculateVideoHeight = () => {
@@ -125,7 +126,7 @@ const SEO: React.FC = () => {
             <span className="close-button" onClick={closeModal}>
               &times;
             </span>
-            <h4>{selectedVideo?.title}</h4>
+            <h4> <span className="h4-title">SEO:</span> {selectedVideo?.title}</h4>
             <iframe
               src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
               title={selectedVideo?.title}
@@ -133,12 +134,13 @@ const SEO: React.FC = () => {
               allow="autoplay; encrypted-media"
               allowFullScreen
             ></iframe>
-            <button
-              onClick={() => window.open(videoUrl, "_blank")}
-              style={{ backgroundColor: "#0084FF", color: "#FFFFFF" }}
-            >
-              Watch Video
-            </button>
+            <Description>
+
+            <h5>Descrição:</h5>
+            <hr style={{ width: '100%', borderTop: '1px solid black'  }} />
+
+            <h6>{selectedVideo?.descricao}</h6>
+            </Description>
           </ModalContent>
         </Modal>
       )}
