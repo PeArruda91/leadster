@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import ModalVideo from './ModalVideo';
 import MktVideo from './mktdigVIdeos';
 import FuturoMkt from './futuroMkt';
+import SEO from './SEO';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -172,8 +173,8 @@ const FourButtonComponent: React.FC = () => {
         <ButtonMenu>
           <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
           <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
-          <Button>lorem ipsum</Button>
-          <Button>lorem ipsum</Button>
+          <Button onClick={() => handleButtonClick(<FuturoMkt />)}>Futuro do Marketing</Button>
+          <Button onClick={() => handleButtonClick(<SEO />)}>SEO</Button>
         </ButtonMenu>
       )}
 
@@ -181,7 +182,7 @@ const FourButtonComponent: React.FC = () => {
         <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
         <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
         <Button onClick={() => handleButtonClick(<FuturoMkt />)}>Futuro do Marketing</Button>
-        <Button>lorem ipsum</Button>
+        <Button onClick={() => handleButtonClick(<SEO />)}>SEO</Button>
       </ButtonContainer>
 
       <Line />
