@@ -161,11 +161,9 @@ const FourButtonComponent: React.FC = () => {
     <>
       {isMobile && (
         <HamburgerContainer>
-          <Hamburger onClick={toggleMenu}>
-            <HamburgerIcon />
-            <HamburgerIcon />
-            <HamburgerIcon />
-          </Hamburger>
+          <Button onClick={toggleMenu}>
+            MENU
+          </Button>
         </HamburgerContainer>
       )}
 

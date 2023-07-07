@@ -51,8 +51,7 @@ export const VideoCard = styled.div`
   }
 
   &:hover {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
-    transform: scale(1.1); /* Adicionando o efeito de zoom */
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);    
   }
 
   button:hover {
@@ -72,7 +71,6 @@ export const VideoCard = styled.div`
   }
 
   @media (max-width: 767px) {
-    /* Estilos para smartphone */
     width: 100%;
     margin: 10px 0;
   }
@@ -155,7 +153,6 @@ export const ModalContent = styled.div`
   }
 
   @media (max-width: 767px) {
-    /* Estilos para smartphone */
     width: 90%;
     height: auto;
   }
