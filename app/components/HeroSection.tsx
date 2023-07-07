@@ -2,6 +2,23 @@
 
 import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroSubtitle, HeroTitle } from '../style/banner';
+import Image from "next/image";
+import styled from 'styled-components';
+
+const Loguinho = styled(Image)`
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  padding-right: 35%;
+  margin-left: 0px;
+  margin-bottom: -12px;
+
+  @media (max-width: 767px) {
+    
+    display: none;
+  }
+`;
 
 const HeroSectionComponent: React.FC = () => {
   return (

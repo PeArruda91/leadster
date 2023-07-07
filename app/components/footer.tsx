@@ -6,7 +6,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 const FooterContainer = styled.footer`
   background-color: #f4f4f4;
   padding: 30px 0;
@@ -52,6 +51,7 @@ const SocialIcons = styled.ul`
   display: flex;
   padding: 0;
   justify-content: center;
+  list-style: none
 `;
 
 const SocialIconItem = styled.li`
@@ -70,7 +70,7 @@ const ContactInfo = styled.div`
 const Address = styled.p`
   font-size: 12px;
   color: #888;
-  text-align: right;
+  text-align: center;
 `;
 
 const FooterText = styled.p`
@@ -78,6 +78,10 @@ const FooterText = styled.p`
   font-size: 12px;
   color: #888;
   margin-top: 20px;
+
+  span{
+    color: blue;
+  }
 `;
 
 const Footer: React.FC = () => {
@@ -87,36 +91,48 @@ const Footer: React.FC = () => {
         <Column>
           <ColumnTitle>Links Principais</ColumnTitle>
           <LinkList>
-            <LinkListItem><Link href="#">Home</Link></LinkListItem>
-            <LinkListItem><Link href="#">Ferramenta</Link></LinkListItem>
-            <LinkListItem><Link href="#">Preços</Link></LinkListItem>
-            <LinkListItem><Link href="#">Contato</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/" target="_blank" rel="noopener noreferrer">Home</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/geracao-de-leads/" target="_blank" rel="noopener noreferrer">Ferramenta</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/preco/" target="_blank" rel="noopener noreferrer">Preços</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/contato/" target="_blank" rel="noopener noreferrer">Contato</Link></LinkListItem>
           </LinkList>
         </Column>
         <Column>
           <ColumnTitle>Cases</ColumnTitle>
           <LinkList>
-            <LinkListItem><Link href="#">Geração de Leads B2B</Link></LinkListItem>
-            <LinkListItem><Link href="#">Geração de Leads em Software</Link></LinkListItem>
-            <LinkListItem><Link href="#">Geração de Leads em Imobiliária</Link></LinkListItem>
-            <LinkListItem><Link href="#">Cases de Sucesso</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/estudo-de-caso/isaac/" target="_blank" rel="noopener noreferrer">Geração de Leads B2B</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/leads-qualificados-com-anuncios/" target="_blank" rel="noopener noreferrer">Geração de Leads em Software</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/estudo-de-caso/rafael-cassio/" target="_blank" rel="noopener noreferrer">Geração de Leads em Imobiliária</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/estudo-de-caso/" target="_blank" rel="noopener noreferrer">Cases de Sucesso</Link></LinkListItem>
           </LinkList>
         </Column>
         <Column>
           <ColumnTitle>Materiais</ColumnTitle>
           <LinkList>
-            <LinkListItem><Link href="#">Blog</Link></LinkListItem>
-            <LinkListItem><Link href="#">Parceria com Agências</Link></LinkListItem>
-            <LinkListItem><Link href="#">Guia Definitivo de Marketing</Link></LinkListItem>
-            <LinkListItem><Link href="#">Materiais Gratuitos</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/blog/" target="_blank" rel="noopener noreferrer">Blog</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/agencias-parceiras/" target="_blank" rel="noopener noreferrer">Parceria com Agências</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/web-stories/" target="_blank" rel="noopener noreferrer">Guia Definitivo de Marketing</Link></LinkListItem>
+            <LinkListItem><Link href="https://leadster.com.br/materiais/" target="_blank" rel="noopener noreferrer">Materiais Gratuitos</Link></LinkListItem>
           </LinkList>
         </Column>
         <Column>
           <ColumnTitle>Siga a Leadster</ColumnTitle>
           <SocialIcons>
-            <SocialIconItem><IconLink href="https://www.linkedin.com/company/getleadster/"><i className="fab fa-linkedin-in"></i></IconLink></SocialIconItem>
-            <SocialIconItem><IconLink href="https://www.facebook.com/leadsterplatform"><i className="fab fa-facebook-f"></i></IconLink></SocialIconItem>
-            <SocialIconItem><IconLink href="https://www.instagram.com/leadster.com.br/"><i className="fab fa-instagram"></i></IconLink></SocialIconItem>
+            <SocialIconItem>
+              <IconLink href="https://www.linkedin.com/company/getleadster/">
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </IconLink>
+            </SocialIconItem>
+            <SocialIconItem>
+              <IconLink href="https://www.facebook.com/leadsterplatform">
+                <FontAwesomeIcon icon={faFacebookF} />
+              </IconLink>
+            </SocialIconItem>
+            <SocialIconItem>
+              <IconLink href="https://www.instagram.com/leadster.com.br/">
+                <FontAwesomeIcon icon={faInstagram} />
+              </IconLink>
+            </SocialIconItem>
           </SocialIcons>
           <ContactInfo>
             <p>Email: contato@leadster.com.br</p>
@@ -125,7 +141,7 @@ const Footer: React.FC = () => {
         </Column>
       </FooterContent>
       <Address>Rua José Loureiro, 464 - Centro - Curitiba PR - CEP: 80010-000</Address>
-      <FooterText>&copy; 2015-2023 Todos direitos reservados | Leadster</FooterText>
+      <FooterText>&copy; 2015-2023 Todos direitos reservados | <span>Leadster</span></FooterText>
     </FooterContainer>
   );
 };
