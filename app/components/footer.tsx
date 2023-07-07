@@ -2,6 +2,10 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const FooterContainer = styled.footer`
   background-color: #f4f4f4;
@@ -66,6 +70,7 @@ const ContactInfo = styled.div`
 const Address = styled.p`
   font-size: 12px;
   color: #888;
+  text-align: right;
 `;
 
 const FooterText = styled.p`
@@ -109,9 +114,9 @@ const Footer: React.FC = () => {
         <Column>
           <ColumnTitle>Siga a Leadster</ColumnTitle>
           <SocialIcons>
-            <SocialIconItem><IconLink href="#"><i className="fab fa-linkedin-in"></i></IconLink></SocialIconItem>
-            <SocialIconItem><IconLink href="#"><i className="fab fa-facebook-f"></i></IconLink></SocialIconItem>
-            <SocialIconItem><IconLink href="#"><i className="fab fa-instagram"></i></IconLink></SocialIconItem>
+            <SocialIconItem><IconLink href="https://www.linkedin.com/company/getleadster/"><i className="fab fa-linkedin-in"></i></IconLink></SocialIconItem>
+            <SocialIconItem><IconLink href="https://www.facebook.com/leadsterplatform"><i className="fab fa-facebook-f"></i></IconLink></SocialIconItem>
+            <SocialIconItem><IconLink href="https://www.instagram.com/leadster.com.br/"><i className="fab fa-instagram"></i></IconLink></SocialIconItem>
           </SocialIcons>
           <ContactInfo>
             <p>Email: contato@leadster.com.br</p>
@@ -119,8 +124,8 @@ const Footer: React.FC = () => {
           </ContactInfo>
         </Column>
       </FooterContent>
-      <FooterText>&copy; 2015-2023 Todos direitos reservados | Leadster</FooterText>
       <Address>Rua José Loureiro, 464 - Centro - Curitiba PR - CEP: 80010-000</Address>
+      <FooterText>&copy; 2015-2023 Todos direitos reservados | Leadster</FooterText>
     </FooterContainer>
   );
 };
