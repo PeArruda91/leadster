@@ -5,6 +5,7 @@ import React from 'react';
 import { HeroCaption, HeroCaption2, HeroSection, HeroTitle } from '../style/banner';
 import Image from "next/image";
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const Comparative = styled(Image)`
   width: auto;
@@ -146,7 +147,9 @@ const DownBanner: React.FC = () => {
         <HeroCaption>Criação e ativação em <strong>4 minutos.</strong></HeroCaption>
         <hr style={{ width: '100%', borderTop: '1px solid black' }} />
         <TopTenAppContainer>
+          <Link href="https://leadster.com.br/" target="_blank" rel="noopener noreferrer">
           <BlueButton>VER DEMONSTRAÇÃO</BlueButton>
+          </Link>
           <Toptenapp src="/media/selo_RD.png" alt="seloRD" width={353} height={73} />
         </TopTenAppContainer>
         
