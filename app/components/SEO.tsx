@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import seo from "../api/seo.json";
-import { VideoGroup, VideoCard, Modal, ModalContent, Description } from "../style/modal";
 import { FaPlay } from 'react-icons/fa';
+import { VideoGroup, VideoCard, Modal, ModalContent, Description } from "../style/modal";
 
 interface Video {
   title: string;

@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import mktdigVideos from "../api/mktdigVideos.json";
-import { VideoGroup, VideoCard, Modal, ModalContent } from "../style/modal";
 import { FaPlay } from 'react-icons/fa';
+import { VideoGroup, VideoCard, Modal, ModalContent, Description } from "../style/modal";
 
 interface Video {
   title: string;
   videoId: string;
-  thumbnailUrl: string; 
+  thumbnailUrl: string;
+  descricao: string;
 }
 
 interface VideoData {
@@ -121,26 +122,27 @@ const MktVideo: React.FC = () => {
       {/* Modal */}
       {isOpen && videoUrl && (
         <Modal>
-          <ModalContent>
-            <span className="close-button" onClick={closeModal}>
-              &times;
-            </span>
-            <h4>{selectedVideo?.title}</h4>
-            <iframe
-              src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
-              title={selectedVideo?.title}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            ></iframe>
-            <button
-              onClick={() => window.open(videoUrl, "_blank")}
-              style={{ backgroundColor: "#0084FF", color: "#FFFFFF" }}
-            >
-              Watch Video
-            </button>
-          </ModalContent>
-        </Modal>
+        <ModalContent>
+          <span className="close-button" onClick={closeModal}>
+            &times;
+          </span>
+          <h4> <span className="h4-title">Marketing Digital:</span> {selectedVideo?.title}</h4>
+          <iframe
+            src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
+            title={selectedVideo?.title}
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
+          <Description>
+
+          <h5>Descrição:</h5>
+          <hr style={{ width: '100%', borderTop: '1px solid black'  }} />
+
+          <h6>{selectedVideo?.descricao}</h6>
+          </Description>
+        </ModalContent>
+      </Modal>
       )}
     </div>
   );
