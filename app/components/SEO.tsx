@@ -23,7 +23,7 @@ const SEO: React.FC = () => {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [videoHeight, setVideoHeight] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const videosPerPage = 9;
+  const videosPerPage = 6;
 
   useEffect(() => {
     const calculateVideoHeight = () => {
@@ -105,10 +105,8 @@ const SEO: React.FC = () => {
 
   return (
     <div>
-      {/* Video cards */}
       <div>{renderVideoCards()}</div>
 
-      {/* Pagination */}
       <div
         style={{
           display: "flex",
@@ -116,10 +114,9 @@ const SEO: React.FC = () => {
           marginTop: "20px",
         }}
       >
-        {pagination}
+       {pagination}
       </div>
 
-      {/* Modal */}
       {isOpen && videoUrl && (
         <Modal>
           <ModalContent>

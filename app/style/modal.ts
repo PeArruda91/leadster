@@ -93,6 +93,7 @@ export const Modal = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(140, 148, 230, 0.3);
+  z-index: 1;
 `;
 
 export const ModalContent = styled.div`
@@ -106,7 +107,7 @@ export const ModalContent = styled.div`
   width: 425px;
   height: 511px;
   position: fixed;
-  z-index: 999;
+  z-index: 0;
   
   h4 {
     margin-bottom: 10px;
@@ -157,7 +158,7 @@ export const ModalContent = styled.div`
   }
 
   @media (max-width: 767px) {
-    width: 90%;
+    width: 100%;
     height: auto;
   }
 `;
@@ -165,5 +166,11 @@ export const ModalContent = styled.div`
 export const Description = styled.div`
   text-align: left;
   margin: 20px;
+  z-index: 1;
 
-`
+  @media (max-width: 767px){
+    display: none;
+  }
+`;
+
+

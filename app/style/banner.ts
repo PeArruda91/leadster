@@ -10,6 +10,7 @@ export const HeroSection = styled.section`
   margin-bottom: 20px;
   align-items: center;
   width: auto;
+  z-index: -9
 
   @media (min-height: 1600px) {
     min-height: 610px;

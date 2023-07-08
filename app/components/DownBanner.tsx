@@ -68,13 +68,14 @@ const Toptenapp = styled(Image)`
   }
 `;
 
-const DownSubtitle = styled.p`
+const DownSubtitle = styled.div`
   font-size: 2rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   position: absolute;
   bottom: 90;
   right: 120;
   margin-left: 35%;
+  z-index: 0;
 
   @media (max-width: 767px) {
     font-size: 1rem;
@@ -99,8 +100,7 @@ const BlueButton = styled.button`
   white-space: nowrap; 
 
   @media (max-width: 767px){
-    display: block;
-    margin: 5px auto;
+    display: none;
   }
 `;
 
