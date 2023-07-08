@@ -39,7 +39,7 @@ export const HeroSubtitle = styled.p`
   font-size: 1.75rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin-top: 12px;
-  margin-bottom: -45px;
+  margin-bottom: -55px;
 
   @media (max-width: 767px) {
     font-size: 1rem;
