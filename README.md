@@ -12,3 +12,22 @@ Para instalar o projeto, siga as etapas abaixo:
 
 ```bash
 git clone https://github.com/PeArruda91/leadster.git
+```
+
+3. Navegue até o diretório do projeto
+```bash
+cd leadster
+```
+
+4. Instale as dependências utilizando o gerenciador de pacotes npm ou Yarn:
+
+```bash
+npm install
+```
+
+Ou
+
+```bash
+yarn install
+```
+
