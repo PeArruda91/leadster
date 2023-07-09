@@ -40,10 +40,19 @@ const ModalVideo: React.FC = () => {
     };
   }, []);
 
+  const isMobileOrTablet = () => {
+    const userAgent = navigator.userAgent;
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(userAgent);
+  };
+
   const openModal = (video: Video) => {
     setSelectedVideo(video);
-    setVideoUrl(`https://www.youtube.com/watch?v=${video.videoId}`);
-    setIsOpen(true);
+    if (isMobileOrTablet()) {
+      window.open(`https://www.youtube.com/watch?v=${video.videoId}`);
+    } else {
+      setVideoUrl(`https://www.youtube.com/watch?v=${video.videoId}`);
+      setIsOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -84,15 +93,16 @@ const ModalVideo: React.FC = () => {
   const pageNumbers = Math.ceil(videoData.videos.length / videosPerPage);
   const pagination = [];
   for (let i = 1; i <= pageNumbers; i++) {
+    const isSelected = i === currentPage;
     pagination.push(
       <button
         key={i}
         onClick={() => paginate(i)}
         style={{
-          backgroundColor: "transparent",
+          backgroundColor: isSelected ? "#0084FF" : "transparent",
           border: "none",
-          borderRadius: "50%",
-          color: "#0084FF",
+          borderRadius: "10%",
+          color: isSelected ? "#FFFFFF" : "#000000",
           padding: "8px 12px",
           margin: "0 5px",
           cursor: "pointer",
@@ -102,13 +112,12 @@ const ModalVideo: React.FC = () => {
       </button>
     );
   }
+  
 
   return (
     <div>
-      {/* Video cards */}
       <div>{renderVideoCards()}</div>
 
-      {/* Pagination */}
       <div
         style={{
           display: "flex",
@@ -116,10 +125,10 @@ const ModalVideo: React.FC = () => {
           marginTop: "20px",
         }}
       >
+        <span style={{ marginRight: "5px", marginTop: "5px" }}>Página:</span>
         {pagination}
       </div>
 
-      {/* Modal */}
       {isOpen && videoUrl && (
         <Modal>
         <ModalContent>

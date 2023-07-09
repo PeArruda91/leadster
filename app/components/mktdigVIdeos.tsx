@@ -40,10 +40,19 @@ const MktVideo: React.FC = () => {
     };
   }, []);
 
+  const isMobileOrTablet = () => {
+    const userAgent = navigator.userAgent;
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(userAgent);
+  };
+
   const openModal = (video: Video) => {
     setSelectedVideo(video);
-    setVideoUrl(`https://www.youtube.com/watch?v=${video.videoId}`);
-    setIsOpen(true);
+    if (isMobileOrTablet()) {
+      window.open(`https://www.youtube.com/watch?v=${video.videoId}`);
+    } else {
+      setVideoUrl(`https://www.youtube.com/watch?v=${video.videoId}`);
+      setIsOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -57,13 +66,13 @@ const MktVideo: React.FC = () => {
     const indexOfLastVideo = currentPage * videosPerPage;
     const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
     const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
-  
+
     const groups: Video[][] = [];
     for (let i = 0; i < currentVideos.length; i += 3) {
       const group = currentVideos.slice(i, i + 3);
       groups.push(group);
     }
-  
+
     return groups.map((group, index) => (
       <VideoGroup key={index}>
         {group.map((video, index) => (
@@ -84,15 +93,16 @@ const MktVideo: React.FC = () => {
   const pageNumbers = Math.ceil(mktdigVideos.videos.length / videosPerPage);
   const pagination = [];
   for (let i = 1; i <= pageNumbers; i++) {
+    const isSelected = i === currentPage;
     pagination.push(
       <button
         key={i}
         onClick={() => paginate(i)}
         style={{
-          backgroundColor: "transparent",
+          backgroundColor: isSelected ? "#0084FF" : "transparent",
           border: "none",
-          borderRadius: "50%",
-          color: "#0084FF",
+          borderRadius: "10%",
+          color: isSelected ? "#FFFFFF" : "#000000",
           padding: "8px 12px",
           margin: "0 5px",
           cursor: "pointer",
@@ -103,12 +113,11 @@ const MktVideo: React.FC = () => {
     );
   }
 
+
   return (
     <div>
-      {/* Video cards */}
       <div>{renderVideoCards()}</div>
 
-      {/* Pagination */}
       <div
         style={{
           display: "flex",
@@ -116,33 +125,34 @@ const MktVideo: React.FC = () => {
           marginTop: "20px",
         }}
       >
+        <span style={{ marginRight: "5px", marginTop: "5px" }}>Página:</span>
         {pagination}
       </div>
 
-      {/* Modal */}
+
       {isOpen && videoUrl && (
         <Modal>
-        <ModalContent>
-          <span className="close-button" onClick={closeModal}>
-            &times;
-          </span>
-          <h4> <span className="h4-title">Marketing Digital:</span> {selectedVideo?.title}</h4>
-          <iframe
-            src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
-            title={selectedVideo?.title}
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          ></iframe>
-          <Description>
+          <ModalContent>
+            <span className="close-button" onClick={closeModal}>
+              &times;
+            </span>
+            <h4> <span className="h4-title">Marketing Digital:</span> {selectedVideo?.title}</h4>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo?.videoId}`}
+              title={selectedVideo?.title}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            ></iframe>
+            <Description>
 
-          <h5>Descrição:</h5>
-          <hr style={{ width: '100%', borderTop: '1px solid black'  }} />
+              <h5>Descrição:</h5>
+              <hr style={{ width: '100%', borderTop: '1px solid black' }} />
 
-          <h6>{selectedVideo?.descricao}</h6>
-          </Description>
-        </ModalContent>
-      </Modal>
+              <h6>{selectedVideo?.descricao}</h6>
+            </Description>
+          </ModalContent>
+        </Modal>
       )}
     </div>
   );
