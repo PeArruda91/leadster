@@ -2,7 +2,7 @@ import DownBanner from "./components/DownBanner";
 import HeroSectionComponent from "./components/HeroSection";
 import Footer from "./components/footer";
 import Navbar from "./components/navBar";
-import FourButtonComponent from "./components/selectBar";
+import SelectBar from "./components/selectBar";
 import FooterBar from "./components/footerBar";
 
 
@@ -11,7 +11,7 @@ export default function Home() {
    <>
     <Navbar />
     <HeroSectionComponent />
-    <FourButtonComponent />
+    <SelectBar />
     <DownBanner />
     <FooterBar />
     <Footer />

@@ -137,7 +137,7 @@ const ResponsiveVideo = () => {
   );
 };
 
-const FourButtonComponent: React.FC = () => {
+const SelectBar: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -234,4 +234,4 @@ const FourButtonComponent: React.FC = () => {
   );
 };
 
-export default FourButtonComponent;
+export default SelectBar;
