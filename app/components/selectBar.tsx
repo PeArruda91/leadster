@@ -13,7 +13,7 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   margin: auto;
   max-width: 400px;
-  
+
   @media (max-width: 600px) {
     display: none;
   }
@@ -39,6 +39,12 @@ const Button = styled.button`
   &:hover {
     border: 2px solid #0084FF;
     color: #0084FF;
+  }
+
+  &.selected {
+    background-color: #0084FF;
+    border: 2px solid #0084FF;
+    color: white;
   }
 
   @media (max-width: 600px) {
@@ -76,7 +82,6 @@ const HamburgerIcon = styled.div`
     margin-bottom: 0;
   }
 `;
-
 
 const ButtonMenu = styled.div`
   display: flex;
@@ -136,11 +141,12 @@ const FourButtonComponent: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<React.ReactNode>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [selectedButton, setSelectedButton] = useState('');
 
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 600);
-    };    
+    };
     checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
     return () => {
@@ -148,8 +154,9 @@ const FourButtonComponent: React.FC = () => {
     };
   }, []);
 
-  const handleButtonClick = (component: React.ReactNode) => {
+  const handleButtonClick = (component: React.ReactNode, buttonId: string) => {
     setSelectedComponent(component);
+    setSelectedButton(buttonId);
     setMenuOpen(false);
   };
 
@@ -161,26 +168,64 @@ const FourButtonComponent: React.FC = () => {
     <>
       {isMobile && (
         <HamburgerContainer>
-          <Button onClick={toggleMenu}>
-            MENU
-          </Button>
+          <Button onClick={toggleMenu}>MENU</Button>
         </HamburgerContainer>
       )}
 
       {menuOpen && (
         <ButtonMenu>
-          <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
-          <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
-          <Button onClick={() => handleButtonClick(<FuturoMkt />)}>Futuro do Marketing</Button>
-          <Button onClick={() => handleButtonClick(<SEO />)}>SEO</Button>
+          <Button
+            onClick={() => handleButtonClick(<MktVideo />, 'mkt')}
+            className={selectedButton === 'mkt' ? 'selected' : ''}
+          >
+            Marketing Digital
+          </Button>
+          <Button
+            onClick={() => handleButtonClick(<ModalVideo />, 'modal')}
+            className={selectedButton === 'modal' ? 'selected' : ''}
+          >
+            Mídia Paga
+          </Button>
+          <Button
+            onClick={() => handleButtonClick(<FuturoMkt />, 'futuro')}
+            className={selectedButton === 'futuro' ? 'selected' : ''}
+          >
+            Futuro do Marketing
+          </Button>
+          <Button
+            onClick={() => handleButtonClick(<SEO />, 'seo')}
+            className={selectedButton === 'seo' ? 'selected' : ''}
+          >
+            SEO
+          </Button>
         </ButtonMenu>
       )}
 
       <ButtonContainer>
-        <Button onClick={() => handleButtonClick(<MktVideo />)}>Marketing Digital</Button>
-        <Button onClick={() => handleButtonClick(<ModalVideo />)}>Mídia Paga</Button>
-        <Button onClick={() => handleButtonClick(<FuturoMkt />)}>Futuro do Marketing</Button>
-        <Button onClick={() => handleButtonClick(<SEO />)}>SEO</Button>
+        <Button
+          onClick={() => handleButtonClick(<MktVideo />, 'mkt')}
+          className={selectedButton === 'mkt' ? 'selected' : ''}
+        >
+          Marketing Digital
+        </Button>
+        <Button
+          onClick={() => handleButtonClick(<ModalVideo />, 'modal')}
+          className={selectedButton === 'modal' ? 'selected' : ''}
+        >
+          Mídia Paga
+        </Button>
+        <Button
+          onClick={() => handleButtonClick(<FuturoMkt />, 'futuro')}
+          className={selectedButton === 'futuro' ? 'selected' : ''}
+        >
+          Futuro do Marketing
+        </Button>
+        <Button
+          onClick={() => handleButtonClick(<SEO />, 'seo')}
+          className={selectedButton === 'seo' ? 'selected' : ''}
+        >
+          SEO
+        </Button>
       </ButtonContainer>
 
       <Line />
