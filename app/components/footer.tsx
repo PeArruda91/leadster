@@ -119,17 +119,17 @@ const Footer: React.FC = () => {
           <ColumnTitle>Siga a Leadster</ColumnTitle>
           <SocialIcons>
             <SocialIconItem>
-              <IconLink href="https://www.linkedin.com/company/getleadster/">
+              <IconLink href="https://www.linkedin.com/company/getleadster/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </IconLink>
             </SocialIconItem>
             <SocialIconItem>
-              <IconLink href="https://www.facebook.com/leadsterplatform">
+              <IconLink href="https://www.facebook.com/leadsterplatform" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebookF} />
               </IconLink>
             </SocialIconItem>
             <SocialIconItem>
-              <IconLink href="https://www.instagram.com/leadster.com.br/">
+              <IconLink href="https://www.instagram.com/leadster.com.br/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} />
               </IconLink>
             </SocialIconItem>

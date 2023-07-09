@@ -20,7 +20,7 @@ export const NavBar = styled.nav`
 export const LogoWrapper = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: column; /* Added */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -40,7 +40,7 @@ export const Logo = styled(Image)`
 export const Tagline = styled.p`
   font-size: 10px;
   color: #666666;
-  margin-top: 10px; /* Updated */
+  margin-top: 10px;
 `;
 
 const FooterBar = () => {

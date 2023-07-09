@@ -99,7 +99,7 @@ export const Modal = styled.div`
 export const ModalContent = styled.div`
   background-color: #fff;
   padding: 25px 0;
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
